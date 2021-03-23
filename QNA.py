@@ -57,7 +57,11 @@ def netwrix():
 
 def professor_messer():
     print('Starting professor messer practice exam pdf extraction')
-    professor = open('PATH TO PROFESSER MESSER PRACTICE QUESTIONS PDF', 'rb')
+    try:
+        professor = open('PATH TO PROFESSER MESSER PRACTICE QUESTIONS PDF', 'rb')
+    except:
+        print('Professor messer practice questions pdf not found, skipping... \n\nPlease paste the path to the pdf in the script\n')
+        return None
     read_pdf = pdf.PdfFileReader(professor)
     for i in porfessor_dict.keys():
         for x in range(porfessor_dict[i][0], porfessor_dict[i][1]):
@@ -72,8 +76,8 @@ if __name__ == '__main__':
     print('Creating QNA.txt')
     crucialexams_practice_tests()
     crucialexams_flash_cards()
-    professor_messer()
     netwrix()
+    professor_messer()
 
 
 file.close()
